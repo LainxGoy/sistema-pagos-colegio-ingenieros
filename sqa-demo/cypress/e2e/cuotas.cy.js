@@ -3,11 +3,15 @@ describe('Control de cuotas', () => {
   it('aprueba una solicitud y habilita a la afiliada', () => {
     cy.contains('No habilitado');
     cy.contains('Aprobar').click();
+    cy.contains('#cuotas tr', 'octubre 2026').within(() => cy.contains('pagada'));
+    cy.contains('#pagos tr', 'octubre 2026').within(() => cy.contains('aprobado'));
     cy.contains('Habilitado');
     cy.contains('Solicitud aprobada.');
   });
   it('rechaza una solicitud sin pagar la cuota', () => {
     cy.contains('Rechazar').click();
+    cy.contains('#cuotas tr', 'octubre 2026').within(() => cy.contains('pendiente'));
+    cy.contains('#pagos tr', 'octubre 2026').within(() => cy.contains('rechazado'));
     cy.contains('No habilitado');
     cy.contains('Solicitud rechazada.');
   });
@@ -16,9 +20,9 @@ describe('Control de cuotas', () => {
     cy.get('#importe').type('120');
     cy.get('#vencimiento').type('2026-11-20');
     cy.contains('Agregar cuota').click();
-    cy.contains('noviembre 2026').should('exist');
+    cy.contains('#cuotas tr', 'noviembre 2026').within(() => cy.contains('pendiente'));
     cy.contains('Solicitar revisión').click();
+    cy.contains('#pagos tr', 'noviembre 2026').within(() => cy.contains('pendiente'));
     cy.contains('Solicitud enviada a revisión.');
   });
 });
-
