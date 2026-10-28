@@ -14,4 +14,5 @@ La carpeta `cypress/` contiene dos escenarios de navegador. Para ejecutarlos: in
 
 La carpeta `selenium/` contiene dos escenarios equivalentes. Para ejecutarlos: iniciar el servidor, instalar `selenium` para Python y correr `python selenium/test_cuotas.py` con Chrome disponible.
 
-Los escenarios de aceptación para navegador son: al abrir, octubre aparece pendiente y la habilitación es No habilitado; al aprobar, octubre pasa a pagada y la habilitación es Habilitado; al reiniciar y rechazar, la cuota permanece pendiente. Cypress y Selenium están preparados como herramientas de automatización de navegador; el resultado verificado localmente corresponde a las pruebas unitarias.
+Los escenarios de aceptación para navegador son: al abrir, octubre aparece pendiente y la habilitación es No habilitado; al aprobar, octubre pasa a pagada y la habilitación es Habilitado; al reiniciar y rechazar, la cuota permanece pendiente. En [GitHub Actions](https://github.com/LainxGoy/sistema-pagos-colegio-ingenieros/actions/runs/40742615383) pasaron 10/10 pruebas unitarias, 2/2 escenarios Cypress y 2/2 Selenium.
+
