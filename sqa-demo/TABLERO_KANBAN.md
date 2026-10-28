@@ -2,7 +2,7 @@
 
 **Corte:** 28 de octubre de 2026 · **Responsable:** Diego · **Sprint:** 28 de octubre al 3 de noviembre de 2026
 
-Este tablero conecta las tareas de calidad con el [plan de pruebas ágil](README.md), el [PR 11](https://github.com/LainxGoy/sistema-pagos-colegio-ingenieros/pull/11) y la [ejecución de CI](https://github.com/LainxGoy/sistema-pagos-colegio-ingenieros/actions/runs/40750375665). Se trabaja individualmente; la validación externa corresponde al docente o evaluador.
+Este tablero conecta las tareas de calidad con la [guía del prototipo](README.md), el [PR 11](https://github.com/LainxGoy/sistema-pagos-colegio-ingenieros/pull/11) y la [ejecución de CI](https://github.com/LainxGoy/sistema-pagos-colegio-ingenieros/actions/runs/40750375665). El Test Plan ágil se entrega como DOCX junto al PR. Se trabaja individualmente; la validación externa corresponde al docente o evaluador.
 
 | Backlog | En progreso | En revisión | Hecho |
 | --- | --- | --- | --- |
