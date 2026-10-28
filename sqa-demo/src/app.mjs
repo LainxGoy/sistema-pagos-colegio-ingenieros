@@ -34,7 +34,7 @@ function decide(decision) {
   try {
     datos = resolverPago(datos, decision);
     localStorage.setItem(key, JSON.stringify(datos));
-    mensajeEl.textContent = `Solicitud ${decision}.`;
+    mensajeEl.textContent = `Solicitud ${decision === 'aprobado' ? 'aprobada' : 'rechazada'}.`;
     render();
   } catch (error) { mensajeEl.textContent = error.message; }
 }
@@ -47,3 +47,4 @@ document.querySelector('#reiniciar').addEventListener('click', () => {
   render();
 });
 render();
+
