@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control de cuotas - prototipo SQA</title>
+  <style>
+    *{box-sizing:border-box} body{font-family:Arial,sans-serif;max-width:980px;margin:32px auto;padding:0 20px;color:#142436;background:#f5f7fa;line-height:1.45}
+    h1{margin:0 0 4px} h2{margin:0 0 14px;font-size:1.25rem}.hint{color:#526275}.card{background:#fff;border:1px solid #d9e0e8;border-radius:10px;padding:22px;margin:18px 0}
+    table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid #e1e6ec}th{background:#edf2f7}tr:last-child td{border-bottom:0}
+    button{background:#145fb2;color:#fff;border:0;border-radius:5px;padding:9px 12px;cursor:pointer;margin:2px 4px 2px 0}button.secondary{background:#687789}button:disabled{background:#aab3bd;cursor:default}
+    .badge{font-weight:bold}.ok{color:#087b43}.bad{color:#a12828}.fields{display:grid;grid-template-columns:2fr 1fr 1.5fr auto;gap:10px;align-items:end}.fields label{display:grid;gap:4px;font-weight:600}.fields input{padding:9px;border:1px solid #aeb9c6;border-radius:5px;width:100%;font:inherit}
+    .table-wrap{overflow-x:auto}#mensaje{min-height:1.5em;font-weight:600}@media(max-width:700px){.fields{grid-template-columns:1fr 1fr}.fields label:first-child{grid-column:span 2}}
+  </style>
+</head>
+<body>
+  <header><h1>Control de cuotas</h1><p class="hint">Prototipo académico con una afiliada ficticia. Los cambios se guardan solo en este navegador; no procesa pagos reales ni comprobantes.</p></header>
+  <section class="card" aria-labelledby="afiliado">
+    <h2 id="afiliado">Vista de la afiliada</h2>
+    <p><strong>Ana Pérez</strong> · Habilitación: <span id="habilitacion" class="badge"></span></p>
+    <div class="table-wrap"><table><thead><tr><th>Período</th><th>Importe</th><th>Vencimiento</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="cuotas"></tbody></table></div>
+    <p class="hint">Puedes solicitar la revisión de una cuota pendiente que todavía no tenga una solicitud activa.</p>
+  </section>
+  <section class="card" aria-labelledby="administrador">
+    <h2 id="administrador">Panel del administrador</h2>
+    <h3>Asignar cuota</h3>
+    <form id="form-cuota" class="fields">
+      <label>Período<input id="periodo" name="periodo" placeholder="noviembre 2026" required></label>
+      <label>Importe en Bs<input id="importe" name="importe" type="number" min="0.01" step="0.01" required></label>
+      <label>Vencimiento<input id="vencimiento" name="vencimiento" type="date" required></label>
+      <button type="submit">Agregar cuota</button>
+    </form>
+    <h3>Solicitudes de pago</h3>
+    <div class="table-wrap"><table><thead><tr><th>Cuota</th><th>Estado</th><th>Revisión</th></tr></thead><tbody id="pagos"></tbody></table></div>
+    <button id="reiniciar" type="button" class="secondary">Reiniciar ejemplo</button>
+    <p id="mensaje" role="status" aria-live="polite"></p>
+  </section>
+  <script type="module" src="./src/app.mjs"></script>
+</body>
+</html>
+
