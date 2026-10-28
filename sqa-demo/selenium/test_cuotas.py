@@ -28,8 +28,12 @@ class CuotasBrowserTest(unittest.TestCase):
     def test_agregar_cuota_y_solicitar_revision(self):
         self.driver.find_element(By.ID, 'periodo').send_keys('noviembre 2026')
         self.driver.find_element(By.ID, 'importe').send_keys('120')
-        self.driver.find_element(By.ID, 'vencimiento').send_keys('2026-11-20')
+        self.driver.execute_script(
+            "arguments[0].value = '2026-11-20';",
+            self.driver.find_element(By.ID, 'vencimiento'),
+        )
         self.driver.find_element(By.XPATH, "//button[normalize-space()='Agregar cuota']").click()
+        self.assertIn('Cuota agregada.', self.driver.find_element(By.ID, 'mensaje').text)
         self.driver.find_element(By.XPATH, "//button[normalize-space()='Solicitar revisión']").click()
         self.assertIn('Solicitud enviada a revisión.', self.driver.find_element(By.ID, 'mensaje').text)
 
