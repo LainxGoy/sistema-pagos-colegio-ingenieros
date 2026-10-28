@@ -6,7 +6,10 @@ from selenium.webdriver.common.by import By
 
 class CuotasBrowserTest(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless=new')
+        options.add_argument('--no-sandbox')
+        self.driver = webdriver.Chrome(options=options)
         self.driver.get('http://localhost:8000')
         self.driver.find_element(By.ID, 'reiniciar').click()
 
@@ -25,3 +28,4 @@ class CuotasBrowserTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
